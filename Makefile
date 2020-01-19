@@ -14,8 +14,8 @@
 
 ifneq ($(KERNELRELEASE),)
 	obj-y := net/can/
-else
-	KERNELDIR ?= /lib/modules/$(shell uname -r)/build
+
+	KERNELDIR ?= /lib/modules/$(KERNELRELEASE)/build
 	PWD := $(shell pwd)
 modules:
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
